@@ -25,6 +25,16 @@ variable "password" {
   type        = string
 }
 
+variable "spaceName" {
+  description = "URL of CF API"
+  type        = string
+}
+
+variable "orgName" {
+  description = "URL of CF API"
+  type        = string
+}
+
 provider "cloudfoundry" {
   api_url  = var.apiUrl
   user     = var.userId
@@ -32,10 +42,10 @@ provider "cloudfoundry" {
 }
 
 data "cloudfoundry_org" "org" {
-  name = "cf_org_manual-subaccount-cf"
+  name = var.orgName
 }
 
 resource "cloudfoundry_space" "s1" {
-  name = "space-one"
+  name = var.spaceName
   org  = data.cloudfoundry_org.org.id
 }
