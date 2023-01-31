@@ -7,4 +7,12 @@ terraform {
   }
 }
 
+module "space-module" {
+  source = "./space-module"
+  apiUrl = var.apiUrl
+  userId = var.userId
+  password = var.password
+  spaceName = var.spaceName
+  orgName = var.orgName
+}
 
