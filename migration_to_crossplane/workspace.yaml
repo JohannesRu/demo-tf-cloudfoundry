@@ -1,0 +1,25 @@
+apiVersion: tf.upbound.io/v1beta1
+kind: Workspace
+metadata:
+  name: default
+  annotations:
+spec:
+  forProvider:
+    module: git::https://github.com/JohannesRu/demo-tf-cloudfoundry.git?ref=main
+    source: Remote
+    vars:
+      - key: apiUrl
+        value: "<your CF api endpoint>"
+      - key: userId
+        value: "<your CF user>"
+      - key: password
+        value: "<your CF password>"
+      - key: spaceName
+        value: "<CF space name to create>"
+      - key: orgName
+        value: "<your CF org name>"
+  providerConfigRef: 
+    name: default
+  writeConnectionSecretToRef:
+    namespace: default
+    name: terraform-workspace-cf-space

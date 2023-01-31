@@ -1,0 +1,5 @@
+apiUrl = "<your CF api endpoint>"
+userId = "<your CF user>"
+password = "<your CF password>"
+spaceName = "<your space name>"
+orgName = "<your org name>"
